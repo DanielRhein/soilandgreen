@@ -6,7 +6,7 @@
 
 ### features
 
-- seasonal calendar (cultivation, seeding, havesting)
+- seasonal calendar (cultivation, seeding, harvesting)
   - living room
   - glass house
   - garden
@@ -15,6 +15,8 @@
   - garden calculator (how much plants in one patch)
   
 - garden planner  
+
+- gardening 101
 
 ## changelog
 
