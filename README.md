@@ -72,12 +72,15 @@ Nice to have
 This section contains recent changelog informations
 ### prepare hackathon 2019
 2019/10/18 - Daniel Rhein
+
     - Adding some more information to the Readme.
     - Create the branch.  
     - Create an Component UML diagramm as overview
     - Describe features planned.
     - Create some pitch pics.
-    
+    - Components-devlopment-suggestion
+    - er-diagramm-example added
+        
 ## installation
     Android app has to be contributed to the google play store.
     Backend and Frontend need to be kept as single services.
