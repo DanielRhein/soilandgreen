@@ -27,11 +27,34 @@ Get tipps to start with small novice projects and become a gardening maniac.
   - level (effort measured by watering, attention, conditions)
 - gardening 101
 
+### features planned
+- seasonal calendar that describes cultivation, seeding and harvest of crops.
+- seasonal calendar should distinguishe living room, glass house and gardening.
+- application has a seasonal calender
+- application allow to calculate how much plants fit into one patch
+- application give tips for compost and care of plants and the effort (level)
+- application should have a garden planner
+- application should allow authors to edit and create informations about seeds.
+- a garden planner allows to select crops
+- a garden planner suggests cultivation and time to seed the crops
+- a garden planner automatically suggests time from cultivation til seeding.
+- a garden planner requests the garden size and calculates the patch
+- an author can write about a seed. 
+- an author can determine the distance between one crop to an other.
+- an author can write down information about efforts, watering, attention, and conditions by glasshouse, green house and garden.
+- an author gives the seeding time of the seasonal calendar
+- application determines the level for the given seed. 
+       
+
 ## changelog
+This section contains recent changelog informations
 ### prepare hackathon 2019
+2019/10/18 - Daniel Rhein
     - Adding some more information to the Readme.
     - Create the branch.  
-    - Create an Component UML diagramm
+    - Create an Component UML diagramm as overview
+    - Describe features planned.
+    - Create some pitch pics.
     
 ## installation
     Android app has to be contributed to the google play store.
