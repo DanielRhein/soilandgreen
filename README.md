@@ -24,7 +24,7 @@ Get tipps to start with small novice projects and become a gardening maniac.
   - seeding planner
   - cultivation
   - harvesting
-  - level (effort measured by wattering, attention, conditions)
+  - level (effort measured by watering, attention, conditions)
 - gardening 101
 
 ## changelog
