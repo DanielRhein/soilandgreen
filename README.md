@@ -24,7 +24,7 @@ Get tipps to start with small novice projects and become a gardening maniac.
   - seeding planner
   - cultivation
   - harvesting
-  - level (effort measured by watering, attention, conditions)
+  - level (effort measured by wattering, attention, conditions)
 - gardening 101
 
 ### features planned
@@ -69,13 +69,10 @@ Nice to have
 
 
 ## changelog
-This section contains recent changelog informations
 ### prepare hackathon 2019
-2019/10/18 - Daniel Rhein
-
     - Adding some more information to the Readme.
     - Create the branch.  
-    - Create an Component UML diagramm as overview
+    - Create an Component UML diagramm
     - Describe features planned.
     - Create some pitch pics.
     - Components-devlopment-suggestion
