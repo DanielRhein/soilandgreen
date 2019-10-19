@@ -16,6 +16,7 @@ ApplicationWindow
         height: 80
         icon: icons.icons.flower
         nextButton_icon: icons.icons.next
+        nextButton_enabled: locationSelection.gardenType >= 0
 
         onNext:
         {
@@ -34,26 +35,20 @@ ApplicationWindow
         initialItem: locationSelection
     }
 
-    Component
+
+
+    LocationSelectionView
     {
         id: locationSelection
-
-        Rectangle
-        {
-            color: "green"
-
-        }
     }
 
-    Component
+    Rectangle
     {
         id: plantSelection
 
-        Rectangle
-        {
-            color: "pink"
-        }
+        color: "pink"
     }
+
 
     Item
     {

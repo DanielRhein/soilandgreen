@@ -16,11 +16,13 @@ Rectangle
     property alias title: title.text
     property alias icon: icon.icon
     property alias nextButton_icon: nextButton.icon
+    property alias nextButton_enabled: mouseArea.enabled
 
     signal next()
 
     RowLayout
     {
+        height: parent.height
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.verticalCenter: parent.verticalCenter
@@ -40,14 +42,18 @@ Rectangle
 
         Rectangle
         {
-            color: "purple"
+            id: button
+            opacity: mouseArea.enabled ? 1.0 : 0.4
+            color: "lightGrey"
             Layout.fillHeight: true
+            Layout.margins: 20
             Layout.preferredWidth: 100
 
             Icon
             {
                 id: nextButton
                 anchors.centerIn: parent
+                color: "black"
             }
 
             MouseArea

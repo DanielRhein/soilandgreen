@@ -16,6 +16,7 @@ QtObject
         "flower" : String.fromCharCode(0xeb4c),
         "location" : String.fromCharCode(0xe55c),
         "next" : String.fromCharCode(0xe409),
-        "previous" : String.fromCharCode(0xe408)
+        "previous" : String.fromCharCode(0xe408),
+        "home" : String.fromCharCode(0xe88a)
     }
 }

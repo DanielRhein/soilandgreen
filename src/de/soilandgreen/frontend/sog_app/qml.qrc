@@ -11,5 +11,6 @@
         <file>Assets/SourceSansPro-Regular.ttf</file>
         <file>Assets/SourceSansPro-RegularItalic.ttf</file>
         <file>Assets/SourceSansPro-SemiBold.ttf</file>
+        <file>LocationSelectionView.qml</file>
     </qresource>
 </RCC>
