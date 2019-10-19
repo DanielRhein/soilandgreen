@@ -1,0 +1,58 @@
+@startuml
+'Quelle https://gist.github.com/QuantumGhost/0955a45383a0b6c0bc24f9654b3cb561
+' uncomment the line below if you're using computer with a retina display
+' skinparam dpi 300
+!define Table(name,desc) class name as "desc" << (T,#FFAAAA) >>
+' we use bold for primary key
+' green color for unique
+' and underscore for not_null
+!define primary_key(x) <b>x</b>
+!define unique(x) <color:green>x</color>
+!define not_null(x) <u>x</u>
+' other tags available:
+' <i></i>
+' <back:COLOR></color>, where color is a color name or html color code
+' (#FFAACC)
+' see: http://plantuml.com/classes.html#More
+hide methods
+hide stereotypes
+
+' entities
+
+Table(crop, "crop\n(crops in our system)") {
+primary_key(id) INTEGER
+not_null(unique(name)) VARCHAR[36]
+not_null(unique(latin_name)) VARCHAR[36]
+not_null(unique(img_src)) VARCHAR[36]
+not_null(difficulty) VARCHAR[36]
+}
+
+Table(cropandperiod,"crop_period") {
+primary_key(id) INTEGER
+not_null(fk_crop) INTEGER
+not_null(fk_period) INTEGER
+}
+
+Table(period, "period\n(crops in our system)") {
+primary_key(id) INTEGER
+not_null((unique)location) VARCHAR[36]
+not_null((unique)workflow) VARCHAR[36]
+not_null(begin) DATETIME
+not_null(end) DATETIME
+}
+
+Table(taxonomie, "taxonomie\n()") {
+primary_key(id) INTEGER
+not_null(family) VARCHAR[36]
+not_null((unique)ordnung) VARCHAR[36]
+not_null((unique)klasse) VARCHAR[36]
+not_null((unique)art) VARCHAR[36]
+}
+
+
+' relationships
+' one-to-one relationship
+crop "1" -- "*" crop_period
+crop_period "1" -- "*" period
+crop "1" -- "1" taxonomie
+@enduml
