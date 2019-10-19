@@ -15,6 +15,7 @@ ApplicationWindow
         width: parent.width
         height: 80
         icon: icons.icons.flower
+
         nextButton_icon: icons.icons.next
         nextButton_enabled:
         {
@@ -22,6 +23,8 @@ ApplicationWindow
                 return locationSelection.gardenType >= 0
             else if (stackView.depth == 2)
                 return plantSelection.isSomethingSelected
+            else
+                return false
         }
 
         onNext:
@@ -32,6 +35,7 @@ ApplicationWindow
             {
                 //MAKE THE REQUEST HERE
                 console.log("Requesting plant plan for the chosen garden type: " + locationSelection.gardenType + " and the following plants: " + plantSelection.listOfSelectedIndexes)
+                stackView.push(resultView)
             }
         }
     }
@@ -54,6 +58,13 @@ ApplicationWindow
         {
             id: plantSelection
             visible: false
+        }
+
+        ResultView
+        {
+            id: resultView
+            visible: false
+            basicJsonText: "HALLO!"
         }
     }
 

@@ -13,5 +13,6 @@
         <file>Assets/SourceSansPro-SemiBold.ttf</file>
         <file>LocationSelectionView.qml</file>
         <file>PlantSelectionView.qml</file>
+        <file>ResultView.qml</file>
     </qresource>
 </RCC>
