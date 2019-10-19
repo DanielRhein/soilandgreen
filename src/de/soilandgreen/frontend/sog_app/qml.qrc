@@ -1,0 +1,15 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>Header.qml</file>
+        <file>Text.qml</file>
+        <file>Fonts.qml</file>
+        <file>Icon.qml</file>
+        <file>Icons.qml</file>
+        <file>Assets/MaterialIcons-Regular.ttf</file>
+        <file>Assets/SourceSansPro-Bold.ttf</file>
+        <file>Assets/SourceSansPro-Regular.ttf</file>
+        <file>Assets/SourceSansPro-RegularItalic.ttf</file>
+        <file>Assets/SourceSansPro-SemiBold.ttf</file>
+    </qresource>
+</RCC>
