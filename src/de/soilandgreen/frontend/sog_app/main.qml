@@ -16,12 +16,23 @@ ApplicationWindow
         height: 80
         icon: icons.icons.flower
         nextButton_icon: icons.icons.next
-        nextButton_enabled: locationSelection.gardenType >= 0
+        nextButton_enabled:
+        {
+            if(stackView.depth == 1)
+                return locationSelection.gardenType >= 0
+            else if (stackView.depth == 2)
+                return plantSelection.isSomethingSelected
+        }
 
         onNext:
         {
             if(stackView.depth == 1)
                 stackView.push(plantSelection)
+            else if(stackView.depth == 2)
+            {
+                //MAKE THE REQUEST HERE
+                console.log("Requesting plant plan for the chosen garden type: " + locationSelection.gardenType + " and the following plants: " + plantSelection.listOfSelectedIndexes)
+            }
         }
     }
 
@@ -33,22 +44,18 @@ ApplicationWindow
         anchors.top: header.bottom
         anchors.bottom: parent.bottom
         initialItem: locationSelection
+
+        LocationSelectionView
+        {
+            id: locationSelection
+        }
+
+        PlantSelectionView
+        {
+            id: plantSelection
+            visible: false
+        }
     }
-
-
-
-    LocationSelectionView
-    {
-        id: locationSelection
-    }
-
-    Rectangle
-    {
-        id: plantSelection
-
-        color: "pink"
-    }
-
 
     Item
     {

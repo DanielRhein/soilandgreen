@@ -12,5 +12,6 @@
         <file>Assets/SourceSansPro-RegularItalic.ttf</file>
         <file>Assets/SourceSansPro-SemiBold.ttf</file>
         <file>LocationSelectionView.qml</file>
+        <file>PlantSelectionView.qml</file>
     </qresource>
 </RCC>
