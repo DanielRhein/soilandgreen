@@ -34,12 +34,12 @@ class Period
     private $crops;
 
     /**
-     * @ORM\Column(type="array")
+     * @ORM\Column(type="string")
      */
     private $location = [];
 
     /**
-     * @ORM\Column(type="array")
+     * @ORM\Column(type="string")
      */
     private $workflow = [];
 
