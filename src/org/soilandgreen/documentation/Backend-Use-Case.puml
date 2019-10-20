@@ -1,0 +1,15 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+
+:client:
+:backend:
+rectangle datacollection {
+client -- (request)
+(request) .> (collect information) : http-rest
+(collect information) -- backend
+(collect information) .> database : uses
+}
+
+
+@enduml
