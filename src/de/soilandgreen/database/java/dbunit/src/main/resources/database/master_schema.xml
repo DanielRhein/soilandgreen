@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="gardening-101-create-crop" author="Daniel Rhein">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="crop" catalogName="sog" schemaName="public"/>
+            </not>
+        </preConditions>
+        <comment>creates new crop table for sog</comment>
+        <createTable tableName="crop" catalogName="sog" schemaName="public" >
+            <column autoIncrement="true" name="id" type="int">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(50)">
+                <constraints nullable="false" primaryKey="false"/>
+            </column>
+            <column name="latin_name" type="VARCHAR(50)"/>
+            <column name="img_src" type="VARCHAR(50)"/>
+            <column name="difficulty" type="VARCHAR(50)"/>
+        </createTable>
+        <rollback>
+            <dropTable tableName="crop" catalogName="sog" schemaName="public"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="gardening-101-create-period" author="Daniel Rhein">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="period" catalogName="sog" schemaName="public"/>
+            </not>
+        </preConditions>
+        <comment>creates new period table for sog</comment>
+        <createTable tableName="period" catalogName="sog" schemaName="public" >
+            <column autoIncrement="true" name="id" type="int">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="location" type="VARCHAR(50)">
+                <constraints nullable="false" primaryKey="false"/>
+            </column>
+            <column name="workflow" type="VARCHAR(50)"/>
+            <column name="begin" type="DATE"/>
+            <column name="end" type="DATE"/>
+        </createTable>
+        <rollback>
+            <dropTable tableName="period" catalogName="sog" schemaName="public"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="gardening-101-create-crop-period" author="Daniel Rhein">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="crop_period" catalogName="sog" schemaName="public"/>
+            </not>
+        </preConditions>
+        <comment>creates new connection between period table and crop for sog</comment>
+        <createTable tableName="crop_period" catalogName="sog" schemaName="public" >
+            <column autoIncrement="true" name="id" type="int">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="crop_id" type="INTEGER">
+                <constraints nullable="false" foreignKeyName="fk_crop" references="crop(id)"/>
+            </column>
+            <column name="period_id" type="INTEGER">
+                <constraints nullable="false" foreignKeyName="fk_period" references="period(id)"/>
+            </column>
+        </createTable>
+        <rollback>
+            <dropTable tableName="crop_period" catalogName="sog" schemaName="public"/>
+        </rollback>
+    </changeSet>
+
+
+    <changeSet id="gardening-101-taxonomie" author="Daniel Rhein">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="crop_period" catalogName="sog" schemaName="public"/>
+            </not>
+        </preConditions>
+        <comment>creates new connection between period table and crop for sog</comment>
+        <createTable tableName="crop_period" catalogName="sog" schemaName="public" >
+            <column autoIncrement="true" name="id" type="int">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="crop_id" type="INTEGER">
+                <constraints nullable="false" foreignKeyName="fk_crop" references="crop(id)"/>
+            </column>
+            <column name="period_id" type="INTEGER">
+                <constraints nullable="false" foreignKeyName="fk_period" references="period(id)"/>
+            </column>
+        </createTable>
+        <rollback>
+            <dropTable tableName="crop_period" catalogName="sog" schemaName="public"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="gardening-101-taxonomie" author="Daniel Rhein">
+    <preConditions onFail="MARK_RAN">
+        <not>
+            <tableExists tableName="taxonomie" catalogName="sog" schemaName="public"/>
+        </not>
+        <comment>creates new taxonomie table for sog</comment>
+        <createTable tableName="taxonomie" catalogName="sog" schemaName="public" >
+            <column autoIncrement="true" name="id" type="int">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="crop_id" type="INTEGER">
+                <constraints nullable="false" foreignKeyName="fk_crop" references="crop(id)"/>
+            </column>
+            <column name="family_plant" type="VARCHAR(50)">
+                <constraints nullable="false" primaryKey="false"/>
+            </column>
+            <column name="order_plant" type="VARCHAR(50)">
+                <constraints nullable="false" primaryKey="false"/>
+            </column>
+            <column name="type_plant" type="VARCHAR(50)">
+                <constraints nullable="false" primaryKey="false"/>
+            </column>
+        </createTable>
+        <rollback>
+            <dropTable tableName="taxonomie" catalogName="sog" schemaName="public"/>
+        </rollback>
+    </preConditions>
+    </changeSet>
+
+    <changeSet id="gardening-101-add-fk-crop-taxonomie">
+        <preConditions onFail="MARK_RAN">
+        <not>
+            <comment>creates foreign key for taxonomie table in crops for sog</comment>
+        </not>
+        <addColumn catalogName="sog"
+                   schemaName="public"
+                   tableName="crop">
+            <column name="taxonomie_id" type="INTEGER">
+                <constraints nullable="true" primaryKey="false"  foreignKeyName="fk_taxonomie" references="taxonomie(id)"/>
+            </column>
+        </addColumn>
+    </changeSet>
+</databaseChangeLog>
