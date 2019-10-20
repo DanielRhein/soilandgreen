@@ -5,51 +5,88 @@ namespace App\Controller\Rest;
 use App\Entity\Crop;
 use App\Repository\CropRepository;
 use FOS\RestBundle\Controller\AbstractFOSRestController;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Flex\Response;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class CropController extends AbstractFOSRestController
 {
     /**
-     * @Route("crop", name="crop")
+     * @Route("crop", methods={"GET"})
      */
-    public function indexAction()
+    public function listCrop()
     {
         $crops = $this->getDoctrine()->getRepository(Crop::class);
-        return $this->handleView($this->view($crops->findAll(), 200));
+        return $this->handleView($this->view($crops->findAll(), Response::HTTP_OK));
+    }
+
+    /**
+     * @Route("crop/{id}", methods={"GET"})
+     */
+    public function getCrop($id)
+    {
+        $crop = $this->getDoctrine()
+            ->getRepository(Crop::class)
+            ->find($id);
+
+        if (!$crop) {
+            return $this->handleView($this->view(['error' => true, 'message' => 'No crop found'], Response::HTTP_NOT_FOUND));
+        }
+
+        return $this->handleView($this->view($crop, Response::HTTP_OK));
+
     }
 
     /**
      * @Route("crop/{id}", methods={"PUT"})
      */
-    public function updateCrop($id)
+    public function updateCrop($id, Request $request, ValidatorInterface $validator)
     {
-        return $this->handleView($this->view(__METHOD__, 200));
+        $crop = $this->getDoctrine()
+            ->getRepository(Crop::class)
+            ->find($id);
+        $data = json_decode($request->getContent(), true);
+
+        $errors = $validator->validate($crop);
+        if (count($errors) > 0) {
+            return $this->handleView($this->view(['error' => $errors], Response::HTTP_BAD_REQUEST));
+
+        }
+
+
+        return $this->handleView($this->view(['status' => 'ok'], Response::HTTP_CREATED));
 
     }
 
     /**
-     * @Route("crop/{id}", methods={"POST"})
+     * @Route("crop", methods={"POST"})
      */
-    public function createCropAction($id)
+    public function createCrop(Request $request, ValidatorInterface $validator)
     {
-        return $this->handleView($this->view(__METHOD__, 200));
+        // you can fetch the EntityManager via $this->getDoctrine()
+        // or you can add an argument to the action: createProduct(EntityManagerInterface $entityManager)
+        $entityManager = $this->getDoctrine()->getManager();
 
-    } // "get_user_comments"   [GET] /users/{slug}/comments
+        $crop = new Crop();
+        $data = json_decode($request->getContent(), true);
+        $crop->setName($data['name']);
+        $crop->setImage($data['image']);
+        $crop->setDifficulty($data['difficulty']);
+        $crop->setLatinName($data['latin_name']);
 
-    public function getCommentAction($slug, $id)
-    {} // "get_user_comment"    [GET] /users/{slug}/comments/{id}
+        // tell Doctrine you want to (eventually) save the Product (no queries yet)
+        $errors = $validator->validate($crop);
+        if (count($errors) > 0) {
+            return $this->handleView($this->view(['error' => $errors], Response::HTTP_NOT_FOUND));
 
-    public function deleteCommentAction($slug, $id)
-    {} // "delete_user_comment" [DELETE] /users/{slug}/comments/{id}
+        }
+        $entityManager->persist($crop);
 
-    public function newCommentsAction($slug)
-    {} // "new_user_comments"   [GET] /users/{slug}/comments/new
+        // actually executes the queries (i.e. the INSERT query)
+        $entityManager->flush();
 
-    public function editCommentAction($slug, $id)
-    {} // "edit_user_comment"   [GET] /users/{slug}/comments/{id}/edit
+        return $this->handleView($this->view(['status' => 'ok'], Response::HTTP_CREATED));
 
-    public function removeCommentAction($slug, $id)
-    {} // "remove_user_comment" [GET] /users/{slug}/comments/{id}/remove
+    }
 }

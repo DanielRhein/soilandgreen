@@ -46,7 +46,7 @@ Path:  `crop`
  
 ### period
 
-Path:  `period`
+Path: `period`
 
 *get entry/entries*
 * HTTP **GET** https://www.soilandgreen.org/period
