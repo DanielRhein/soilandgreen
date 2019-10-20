@@ -1,7 +1,0 @@
-@startuml
-DataAccess - [dba-sog]
-Rest - [backend-sog]
-[backend-sog] ..> [dba-sog] : uses
-HTTP - [frontend-sog]
-[frontend-sog] ..> Rest : access
-@enduml

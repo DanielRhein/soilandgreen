@@ -1,0 +1,94 @@
+= Soil and Greeen User Manual
+Doc Writer <doc.writer@example.org>
+v1.0, 2014-09-09
+:example-caption!:
+ifndef::imagesdir[:imagesdir: images]
+
+This is a user manual for the Soil and Green project.
+
+== What have we done so far ...
+
+This project does something represents in its current state an MVP.
+We would like to create an application that helps people to plan their activities in their garden.
+The demo consists of an frontend, backend and dba.
+In the frontend we used QT and React separately. Both send a request against a rest-service that has been written in PHP symphony orm.
+Our backend used in this demo is mysql.
+
+image::Components_Development_Architecture.png[scaledwidth=75%]
+
+== Current Component Versions
+* QT 5.12.2
+
+* PHP SYMPHONY 7.2
+
+== Current Database
+image::ERD_SOIL_AND_GREEN.png[scaledwidth=75%]
+
+
+== What we would like to achieve in the future
+
+
+|===
+|branch-id     |Description|
+|gardening-102 | seasonal calendar that describes cultivation, seeding and harvest of crops. |
+|gardening-103 |
+seasonal calendar should distinguishe living room glass house and gardening. |
+|gardening-104 |
+seasonal calendar should distinguishe living room, glass house and gardening |
+|gardening-105 | application allow to calculate how much plants fit into one patch |
+|gardening-106 | application give tips for compost and care of plants and the effort (level)|
+|gardening-107 | application should have a garden planner|
+|gardening-108 | application should allow authors to edit and create informations about seeds.|
+|gardening-109 | a garden planner allows to select crops|
+|gardening-110 | a garden planner suggests cultivation and time to seed the crops|
+|gardening-111 | a garden planner automatically suggests time from cultivation til seeding.|
+|gardening-112 | a garden planner requests the garden size and calculates the patch|
+|gardening-113 | an author can write about a seed.|
+|gardening-114 | an author can determine the distance between one crop to an other.|
+|gardening-115 | an author can write down information about efforts, watering, attention, and conditions by glasshouse, green house and garden.|
+|gardening-116 | an author gives the seeding time of the seasonal calendar|
+|gardening-117 | application determines the level for the given seed.|
+|===
+
+image::Application_Use_Case.png[scaledwidth=75%]
+
+image::Backend_Use_Case.png[scaledwidth=75%]
+
+== Installation and  information
+=== Requirements
+ PHP 7.2
+ QT 5.12.1
+ MYSQL
+
+=== Frontend
+Install QT.
+Execute QT-Project with QTCreator
+
+or
+
+Run XY for React to run it
+
+=== Backend
+
+Install Composer and PHP 7.2 .
+
+Run _composer install_ within the backend folder.
+
+==== What is Composer?
+Composer is an application oriented package manager for the php programming language.
+It have the MIT licence and can be used within the command line.
+Composer installs dependencies for PHP-programms and available
+PHP-applications can be searched by plattform packages'
+
+==  Demo Rest-Page
+
+https://soilandgreen.org/
+
+== Attributes
+
+.Built-in
+asciidoctor-version:: {asciidoctor-version}
+safe-mode-name:: {safe-mode-name}
+docdir:: {docdir}
+imagesdir:: {imagesdir}
+
