@@ -36,7 +36,7 @@ class Taxonomy
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $plantClass;
+    private $plantSpecies;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -108,14 +108,14 @@ class Taxonomy
         return $this;
     }
 
-    public function getPlantClass(): ?string
+    public function getPlantSpecies(): ?string
     {
-        return $this->plantClass;
+        return $this->plantSpecies;
     }
 
-    public function setPlantClass(string $plantClass): self
+    public function setPlantSpecies(string $plantSpecies): self
     {
-        $this->plantClass = $plantClass;
+        $this->plantSpecies = $plantSpecies;
 
         return $this;
     }
