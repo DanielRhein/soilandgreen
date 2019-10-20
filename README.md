@@ -106,8 +106,10 @@ This section contains recent changelog informations
     about your changes. If the review has been done, you can push it to develop.
     Development-branch is the main branch. From here an release will be created into the master branch. 
 ## contributors
-Kevin Krieger
-Daniel Rhein
+- Kevin Krieger
+- Daniel Rhein
+-  Sophia Schlegel
+- Andreas Sander
 ## credits
 
 ### alternatives
