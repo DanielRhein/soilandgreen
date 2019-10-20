@@ -7,17 +7,16 @@ HTTP - [frontend-sog]
 
 note right of [frontend-sog]
 
-  * Android gradle
-  * Web node-js Vue.js npm
+  * QT React
 
 end note
 
 note right of [backend-sog]
-  * spring-boot for rest-service; jpa liquibase maven
+  * php symphony orm
 end note
 
 note right of [dba-sog]
-  * spring-boot-module hibernate; postgres-driver
+  * mysql, postgres-driver
 end note
 
 @enduml
