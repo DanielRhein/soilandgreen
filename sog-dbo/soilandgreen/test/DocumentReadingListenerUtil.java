@@ -9,7 +9,7 @@ public class DocumentReadingListenerUtil implements DocumentReadingListener {
     @Override
     public void documentReaded(List<PlantsDTO> dtoList) {
         Assert.assertNotNull(dtoList);
-        Assert.assertEquals(1,dtoList.size());
+        Assert.assertEquals(2,dtoList.size());
         Assert.assertEquals("Endivie",dtoList.get(0).getPlant_name());
         Assert.assertEquals("Artischocke",dtoList.get(1).getPlant_name());
     }

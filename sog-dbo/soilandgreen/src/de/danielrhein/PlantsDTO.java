@@ -1,5 +1,6 @@
 package de.danielrhein;
 
+import java.net.URL;
 import java.time.Month;
 import java.util.HashMap;
 import java.util.Map;
@@ -12,6 +13,7 @@ public class PlantsDTO {
     private Month sow_end;
     private Month harvest_start;
     private Month harvest_end;
+    private URL url;
     private int daysUntilCultivation;
     private int daysUntilHarvest;
     private float distance;
@@ -19,18 +21,29 @@ public class PlantsDTO {
 
     public PlantsDTO()
     {
-            monthMap.put(1,Month.JANUARY);
-            monthMap.put(2,Month.FEBRUARY);
-            monthMap.put(3,Month.MARCH);
-            monthMap.put(4,Month.APRIL);
-            monthMap.put(5,Month.MAY);
-            monthMap.put(6,Month.JUNE);
-            monthMap.put(7,Month.JULY);
-            monthMap.put(8,Month.AUGUST);
-            monthMap.put(9,Month.SEPTEMBER);
-            monthMap.put(10,Month.OCTOBER);
-            monthMap.put(11,Month.NOVEMBER);
-            monthMap.put(11,Month.DECEMBER);
+
+    }
+
+    private void setOffset(int offset)
+    {
+        monthMap.clear();
+       monthMap.put(offset+1,Month.JANUARY);
+        monthMap.put(offset+2,Month.FEBRUARY);
+        monthMap.put(offset+3,Month.MARCH);
+        monthMap.put(offset+4,Month.APRIL);
+        monthMap.put(offset+5,Month.MAY);
+        monthMap.put(offset+6,Month.JUNE);
+        monthMap.put(offset+7,Month.JULY);
+        monthMap.put(offset+8,Month.AUGUST);
+        monthMap.put(offset+9,Month.SEPTEMBER);
+        monthMap.put(offset+10,Month.OCTOBER);
+        monthMap.put(offset+11,Month.NOVEMBER);
+        monthMap.put(offset+12,Month.DECEMBER);
+    }
+
+    public void setMonthMapOffset(int offset)
+    {
+        setOffset(offset);
     }
 
     public String getPlant_name() {
@@ -116,5 +129,30 @@ public class PlantsDTO {
         this.distance = distance;
     }
 
+    public URL getUrl() {
+        return url;
+    }
+
+    public void setUrl(URL url) {
+        this.url = url;
+    }
+
+    public String toString()
+    {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(plant_name).append(";");
+        stringBuilder.append(url).append(";");
+        stringBuilder.append(cultivation_start).append(";");
+        stringBuilder.append(cultivation_end).append(";");
+        stringBuilder.append(sow_start).append(";");
+        stringBuilder.append(sow_end).append(";");
+        stringBuilder.append(harvest_start).append(";");
+        stringBuilder.append(harvest_end).append(";");
+        stringBuilder.append(daysUntilCultivation).append(";");
+        stringBuilder.append(daysUntilHarvest).append(";");
+        stringBuilder.append(distance).append(";");
+        stringBuilder.append("\n");
+        return stringBuilder.toString();
+    }
 
 }

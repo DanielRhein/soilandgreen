@@ -33,6 +33,7 @@ public class SaxReader {
     }
 
     public void readFile(String filename) throws SAXException, IOException, ParserConfigurationException {
+        System.out.println("Reading File"+filename);
         saxParserFactory.setValidating(false);
         saxParser = saxParserFactory.newSAXParser();
         saxParser.parse(new File(filename), defaultHandler);
