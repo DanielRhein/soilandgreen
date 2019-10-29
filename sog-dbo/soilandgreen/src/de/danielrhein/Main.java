@@ -15,10 +15,8 @@ public class Main implements DocumentReadingListener{
             SaxPlantDTOInterpreter interpreter = new SaxPlantDTOInterpreter(new DocumentReaded());
             SaxReader saxReader= new SaxReader();
             saxReader.addSaxListener(interpreter);
-            //saxReader.readFile("resources/informations.html");
-
+           // saxReader.readFile("resources/informations.html");
             saxReader.readFile("resources/informations-vg1.html");
-
         } catch (SAXException e) {
             e.printStackTrace();
         } catch (IOException e) {

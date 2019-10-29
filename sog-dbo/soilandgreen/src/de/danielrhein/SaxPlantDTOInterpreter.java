@@ -111,6 +111,10 @@ public class SaxPlantDTOInterpreter implements SaxListener {
         if ("a".equals(stringStack.peek())) {
             System.out.println("A-Content : " + content);
             if (content != null && !content.isEmpty()) {
+                if (content.contains("\n"))
+                {
+                    content.replace("\n","");
+                }
                 if (plantsDTO != null) {
                     if (plantsDTO.getPlant_name() != null) {
                         plantsDTOList.add(plantsDTO);
@@ -129,6 +133,7 @@ public class SaxPlantDTOInterpreter implements SaxListener {
     @Override
     public void startDocument() {
         plantsDTOList.clear();
+        plantsDTO = null;
     }
 
     @Override
