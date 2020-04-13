@@ -67,8 +67,6 @@ class CropController extends AbstractFOSRestController
      */
     public function createCrop(Request $request, ValidatorInterface $validator)
     {
-        // you can fetch the EntityManager via $this->getDoctrine()
-        // or you can add an argument to the action: createProduct(EntityManagerInterface $entityManager)
         $entityManager = $this->getDoctrine()->getManager();
 
         $crop = new Crop();
