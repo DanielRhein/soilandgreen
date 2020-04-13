@@ -1,0 +1,22 @@
+@startuml
+DataAccess - [dba-sog]
+Rest - [backend-sog]
+[backend-sog] ..> [dba-sog] : uses
+HTTP - [frontend-sog]
+[frontend-sog] ..> Rest : access
+
+note right of [frontend-sog]
+
+  * QT React
+
+end note
+
+note right of [backend-sog]
+  * php symphony orm
+end note
+
+note right of [dba-sog]
+  * mysql, postgres-driver
+end note
+
+@enduml
