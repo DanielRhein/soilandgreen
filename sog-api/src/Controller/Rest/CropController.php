@@ -90,4 +90,30 @@ class CropController extends AbstractFOSRestController
         return $this->handleView($this->view(['status' => 'ok'], Response::HTTP_CREATED));
 
     }
+
+    /**
+     * @Route("crop/{id}", methods={"DELETE"})
+     */
+    public function deleteCrop($id)
+    {
+        return $this->handleView($this->view(['try to delete id' => $id, 'notice' => 'not deleted, see code'], Response::HTTP_OK));
+        /** @TODO ensure authentification before deleting entries */
+
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $crop = $this->getDoctrine()
+            ->getRepository(Crop::class)
+            ->find($id);
+        try {
+            $entityManager->remove($crop);
+            $entityManager->flush();
+        }catch (\Exception $e)
+        {
+            return $this->handleView($this->view(['error' => $e->getMessage()], Response::HTTP_NOT_FOUND));
+
+        }
+        return $this->handleView($this->view(['status' => 'ok'], Response::HTTP_OK));
+
+
+    }
 }
