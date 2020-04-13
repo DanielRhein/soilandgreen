@@ -51,19 +51,15 @@ Get tipps to start with small novice projects and become a gardening maniac.
 - an author gives the seeding time of the seasonal calendar
 - application determines the level for the given seed. 
        
-## MVP Minimal set of vialable product
-- on bording 
-- crop selection
-- warehouse list (einkaufsliste)
-- ausgabe; 
-    Empfehlung Anzucht,
-    Aussaht(Gewächshaus, Frühjahrsbeete,Hochbeet, living room)
-    und Pflege,
-    am besten Aussat ist.
-    
-- verträglichkeit von Pflanzen zueinander
+## MVP Minimal set of vialable product (Hackathon_2019)
+- location selection
+- show convenient crops
+- season calendar
+  - show harvest, sow, cultivation
 
 Nice to have
+- on bording
+- combinable one each other
 - Nachfolger und Vorgänger. 
   - Sommerknoblauch, was kommt danach?
 - Indikator
@@ -83,16 +79,43 @@ This section contains recent changelog informations
     - Create some pitch pics.
     - Components-devlopment-suggestion
     - er-diagramm-example added
+    
+### getting started with the project
+2019/10/20 - Kevin Krieger; Sophie Schlegel; Daniel Rhein
+     
+     - Create Api-Backend with Php Symphonie (Kevin Krieger)
+     - Create QT-QML-Demo-Application (Sophie Schlegel)
+     - Create some documentation stuff (UMLs) (Daniel Rhein)
+
+### make it run 
+2019/10/21 - Andreas Sander, Kevin Krieger
+    
+    - Andreas Sander backed an react frontend for SoilAndGreen
+    - Kevin Krieger finalized  Api-Backend for MVP 
         
-## installation
-    Android app has to be contributed to the google play store.
-    Backend and Frontend need to be kept as single services.
-    I suggest a war or microservice for both. 
+## installation & execution
+    
+    ### Backend:
+    - Requirements
+      - PHP 7.2
+      - Composer
+    To run the backend you need to open sog-frontend and run composer install
+
+    ### Frontend:
+    -Requirements
+       - Qt 12.5
+       or React:
+       - node.js
+    
+    To run the react-frontend you need to execute npm run start.
+    To run the qt-frontend you need to execute qt-creator; open the project and execute it
+
 ## how to help
 
 - docs
-  - develop api
-  - user documentation     
+  - [User-Doc](https://github.com/DanielRhein/soilandgreen/blob/develop/src/de/soilandgreen/documentation/asciidoctor/target/generated-docs/user-documentation.pdf)
+  - api documentation [Api-Doc-Link](https://github.com/DanielRhein/soilandgreen/tree/develop/sog-api)
+     
   
 - mailing list
   - comes up with the wiki and will be transported with the documentation
@@ -100,6 +123,7 @@ This section contains recent changelog informations
   - comes with github
 - twitter
    - need to be created within the project
+   
 
 ## contribution guideline
     Create a branch that descripe your feature in the change-log section
@@ -109,10 +133,13 @@ This section contains recent changelog informations
     about your changes. If the review has been done, you can push it to develop.
     Development-branch is the main branch. From here an release will be created into the master branch. 
 ## contributors
-- Kevin Krieger
-- Daniel Rhein
--  Sophia Schlegel
-- Andreas Sander
+- Kevin Krieger (KK@kkrieger.de)
+- Daniel Rhein (daniel.rhein84@web.de)
+-  Sophia Schlegel ()
+- Andreas Sander (mail@andi1984.de)
 ## credits
-
+Thank for the great time [Hackathon](https://www.what-the-hack.saarland/)
+Demo [Web-Application](https://github.com/DanielRhein/soilandgreen/tree/develop/sog-api)
+Rest [Rest-Api](https://soilandgreen.org/api/crop)
 ### alternatives
+(Eco-Plant)[https://github.com/Ecohackerfarm/powerplant]

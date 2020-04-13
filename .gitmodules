@@ -1,0 +1,3 @@
+[submodule "sog-frontend/react/soilandgreen-react-frontend-prototype"]
+	path = sog-frontend/react/soilandgreen-react-frontend-prototype
+	url = https://github.com/andi1984/soilandgreen-react-frontend-prototype.git
