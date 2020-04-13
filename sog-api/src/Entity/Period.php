@@ -5,6 +5,9 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation as Serializer;
+use JMS\Serializer\Annotation\MaxDepth;
+
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PeriodRepository")
@@ -30,18 +33,19 @@ class Period
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Crop", mappedBy="periods")
+     * @MaxDepth(2)
      */
     private $crops;
 
     /**
      * @ORM\Column(type="string")
      */
-    private $location = [];
+    private $location;
 
     /**
      * @ORM\Column(type="string")
      */
-    private $workflow = [];
+    private $workflow;
 
     public function __construct()
     {
@@ -105,24 +109,24 @@ class Period
         return $this;
     }
 
-    public function getLocation(): ?array
+    public function getLocation(): ?string
     {
         return $this->location;
     }
 
-    public function setLocation(array $location): self
+    public function setLocation(string $location): self
     {
         $this->location = $location;
 
         return $this;
     }
 
-    public function getWorkflow(): ?array
+    public function getWorkflow(): ?string
     {
         return $this->workflow;
     }
 
-    public function setWorkflow(array $workflow): self
+    public function setWorkflow(string $workflow): self
     {
         $this->workflow = $workflow;
 
