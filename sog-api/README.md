@@ -84,3 +84,17 @@ Path:  `taxonomy`
 
 *delete entry*
 * HTTP **DELETE** https://soilangreen.org/taxonomy/123
+
+
+## tests with codeception
+
+```apacheconfig
+Codeception is installed for acceptance, functional, and unit testing
+Next steps:
+1. Edit tests/acceptance.suite.yml to set the url of your application. Change PhpBrowser to WebDriver to enable browser testing.
+2. Edit tests/functional.suite.yml to enable Doctrine module if needed.
+3. Create your first acceptance test using vendor/bin/codecept g:cest acceptance First
+4. Write your first test in tests/acceptance/FirstCest.php
+5. Run tests using: vendor/bin/codecept run
+
+```
