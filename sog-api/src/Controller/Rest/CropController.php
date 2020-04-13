@@ -31,7 +31,8 @@ class CropController extends AbstractFOSRestController
             ->find($id);
 
         if (!$crop) {
-            return $this->handleView($this->view(['error' => true, 'message' => 'No crop found'], Response::HTTP_NOT_FOUND));
+            return $this->handleView($this->view(['error' => true, 'message' => 'No crop found'],
+                Response::HTTP_NOT_FOUND));
         }
 
         return $this->handleView($this->view($crop, Response::HTTP_OK));
@@ -53,6 +54,8 @@ class CropController extends AbstractFOSRestController
             return $this->handleView($this->view(['error' => $errors], Response::HTTP_BAD_REQUEST));
 
         }
+
+        /** @Todo: Update data */
 
 
         return $this->handleView($this->view(['status' => 'ok'], Response::HTTP_CREATED));
