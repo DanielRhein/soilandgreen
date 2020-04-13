@@ -18,7 +18,6 @@ class CropController extends AbstractFOSRestController
     public function listCrop()
     {
         $crops = $this->getDoctrine()->getRepository(Crop::class);
-        $this->view()->getContext()->enableMaxDepth()->setMaxDepth(1);
         return $this->handleView($this->view($crops->findAll(), Response::HTTP_OK));
     }
 
