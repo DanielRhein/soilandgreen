@@ -1,3 +1,9 @@
+# no_entry: [DEPRECATED] Active at https://github.com/soilandgreen
+
+## deprecated
+This repository where created on Hackathon last year and its results has been moved to an organisation
+## obsolete
+
 # soilandgreen
 Grap your shovel and pitchfork to start your gardening project.
 Keep the plants healthy and plan your regular irrigation of crops.
