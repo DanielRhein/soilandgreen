@@ -5,6 +5,9 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation as Serializer;
+use JMS\Serializer\Annotation\MaxDepth;
+
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CropRepository")
@@ -40,11 +43,13 @@ class Crop
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Period", inversedBy="crops")
+     * @MaxDepth(2)
      */
     private $periods;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Taxonomy", inversedBy="crops")
+     * @MaxDepth(2)
      */
     private $taxonomy;
 

@@ -31,7 +31,8 @@ class CropController extends AbstractFOSRestController
             ->find($id);
 
         if (!$crop) {
-            return $this->handleView($this->view(['error' => true, 'message' => 'No crop found'], Response::HTTP_NOT_FOUND));
+            return $this->handleView($this->view(['error' => true, 'message' => 'No crop found'],
+                Response::HTTP_NOT_FOUND));
         }
 
         return $this->handleView($this->view($crop, Response::HTTP_OK));
@@ -54,6 +55,8 @@ class CropController extends AbstractFOSRestController
 
         }
 
+        /** @Todo: Update data */
+
 
         return $this->handleView($this->view(['status' => 'ok'], Response::HTTP_CREATED));
 
@@ -64,8 +67,6 @@ class CropController extends AbstractFOSRestController
      */
     public function createCrop(Request $request, ValidatorInterface $validator)
     {
-        // you can fetch the EntityManager via $this->getDoctrine()
-        // or you can add an argument to the action: createProduct(EntityManagerInterface $entityManager)
         $entityManager = $this->getDoctrine()->getManager();
 
         $crop = new Crop();
@@ -87,6 +88,32 @@ class CropController extends AbstractFOSRestController
         $entityManager->flush();
 
         return $this->handleView($this->view(['status' => 'ok'], Response::HTTP_CREATED));
+
+    }
+
+    /**
+     * @Route("crop/{id}", methods={"DELETE"})
+     */
+    public function deleteCrop($id)
+    {
+        return $this->handleView($this->view(['try to delete id' => $id, 'notice' => 'not deleted, see code'], Response::HTTP_OK));
+        /** @TODO ensure authentification before deleting entries */
+
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $crop = $this->getDoctrine()
+            ->getRepository(Crop::class)
+            ->find($id);
+        try {
+            $entityManager->remove($crop);
+            $entityManager->flush();
+        }catch (\Exception $e)
+        {
+            return $this->handleView($this->view(['error' => $e->getMessage()], Response::HTTP_NOT_FOUND));
+
+        }
+        return $this->handleView($this->view(['status' => 'ok'], Response::HTTP_OK));
+
 
     }
 }
